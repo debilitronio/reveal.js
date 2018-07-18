@@ -3,8 +3,6 @@ module.exports = function(grunt) {
   var port = grunt.option("port") || 8000;
   var root = grunt.option("root") || ".";
 
-  console.log({ port });
-
   if (!Array.isArray(root)) root = [root];
 
   // Project configuration
@@ -95,7 +93,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          hostname: "nb241",
+          hostname: "localhost",
           port: port,
           base: root,
           livereload: true,
