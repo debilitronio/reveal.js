@@ -5,6 +5,33 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Montserrat:700);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+.title-green {
+  color: #203020;
+  font-style: italic;
+  /* font-weight: bolder; */
+  position: relative;
+  text-shadow: 0 0 170px white; }
+
+@font-face {
+  font-family: dattermatter;
+  src: url("/lib/font/dattermatter/DattermatterPersonalUse.ttf"); }
+
+.font-old {
+  font-family: dattermatter !important;
+  text-transform: initial !important;
+  font-weight: normal !important; }
+
+/* .title-green::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background-color: #F7F8F6AA;
+  padding: 0.2em;
+  border-radius: 100px;
+  box-shadow: 0px 0px 300px #F7F8F6;
+} */
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
