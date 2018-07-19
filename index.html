@@ -36,14 +36,19 @@
       <section>
         <section>
           <h2 class="font-old">„Long“ time ago...</h2>
-          <img src="img/download-autocomplete.png">
-          <img src="img/download-jquery.png">
-          <img src="img/download-slick.png">
-          <img src="img/Downloads_React.png">
+          <div class="fragment">
+            <img src="img/download-autocomplete.png">
+            <img src="img/download-jquery.png">
+            <img src="img/download-slick.png">
+            <img src="img/Downloads_React.png">
+          </div>
         </section>
         <section>
           <h3>Ergebnis</h3>
-          <img src="img/vendors.png">
+          <div class="fragment">
+            <img src="img/vendors.png">
+            <strong>💭</strong>
+          </div>
         </section>
         <section>
           <h3>Probleme</h3>
@@ -64,7 +69,8 @@
               <path fill="#FFF" d="M1 1v4h2V2h1v3h1V1h1v5h2V2h1v2H8v1h2V1h1v4h2V2h1v3h1V2h1v3h1V1"></path>
             </svg>
           </h2>
-          <pre>
+          <a href="http://npmjs.org" target="_blank">npmjs.org</a>
+          <pre class="fragment">
             <code>
               npm install jquery
               npm install react react-dom
@@ -99,12 +105,21 @@
           </pre>
         </section>
         <section>
+          <strong>
+            <svg width="150" height="auto" viewBox="0 0 18 7">
+              <path fill="#CB3837" d="M0 0v6h5v1h4V6h9V0"></path>
+              <path fill="#FFF" d="M1 1v4h2V2h1v3h1V1h1v5h2V2h1v2H8v1h2V1h1v4h2V2h1v3h1V2h1v3h1V1"></path>
+            </svg>
+            js.org
+          </strong>
+          <br> ⬇
+          <br>
           <img src="img/node_modules.png">
         </section>
         <section>
           <h3>Benefits</h3>
           <ul>
-            <li class="fragment check">Dependency- / Versionsmanagement</li>
+            <li class="fragment check">Abhängigkeiten / Versionsmanagement</li>
             <li class="fragment check">Updates</li>
             <li class="fragment ask">Libraries aufbohren</li>
             <li class="fragment check">Clean Git-Repo</li>
@@ -123,19 +138,29 @@
           <h4>🛠️ Library aufbohren - Beispiel</h4>
           <pre>
             <code>
-                "dependencies": {
-                  "@init/brick-bpa-forms": "^1.0.0",
-                  "@init/brick-bpa-matomo": "^1.0.0",
-                  "a11y-dialog": "^4.0.1",
-                  "react-dom": "^16.2.0",
-                  "react-highlight-words": "^0.11.0",
-                  "react-md-spinner": "^0.2.5",
-                  "react-paginate": "^5.1.0",
-                  "react-select": "github:jnachtigall/react-select#b5401e7e90ed5ad0552dd947cde38730df3f8319",
-                }
+"dependencies": {
+  "@init/brick-bpa-forms": "^1.0.0",
+  "@init/brick-bpa-matomo": "^1.0.0",
+  "a11y-dialog": "^4.0.1",
+  "react-dom": "^16.2.0",
+  "react-highlight-words": "^0.11.0",
+  "react-md-spinner": "^0.2.5",
+  "react-paginate": "^5.1.0",
+  "react-select": "github:jnachtigall/react-select#b5401e7e90ed5ad0552dd947cde38730df3f8319",
+}
             </code>
           </pre>
           <a target="_blank" href="https://github.com/jnachtigall/react-select">https://github.com/jnachtigall/react-select</a>
+        </section>
+        <section>
+          <h2>Problem</h2>
+          <div class="fragment">
+            [github.com/repoA] [gitLab.com/repoB] [bitbucket.com/repoC]
+          </div>
+          <div class="fragment">
+            <br> ⬇
+            <br> [code]
+          </div>
         </section>
         <section>
           <h3>Herausforderung #2:</h3>
@@ -146,6 +171,18 @@
           <a class="external" target="_blank" href="https://www.npmjs.com/package/action-outside">
             <img src="img/action-outside.gif" alt="action-outside">
           </a>
+        </section>
+        <section>
+          <h2>Problem</h2>
+          <div class="fragment">
+            [github.com/repoA] [gitlab.init.de]
+            <br> ⬇
+            <br> [code]
+          </div>
+          <br><br>
+          <div class="fragment">
+            ]init[-Code public
+          </div>
         </section>
         <section>
           <h3>Herausforderung #3:</h3>
@@ -162,23 +199,13 @@
           <img class="fragment" src="img/verdaccio.png" alt="">
         </section>
         <section>
-          <h3>Verdaccio: private NPM-Registry</h3>
-          <ul>
-            <li class="fragment">Use private packages</li>
-            <li class="fragment">Cache npmjs.org registry</li>
-            <li class="fragment">Link multiple registries (uplinks)</li>
-            <li class="fragment">Override public packages</li>
-          </ul>
-        </section>
-        <section>
           <div>
             <h3>Installation</h3>
             <pre><code>npm install --global verdaccio</code></pre>
           </div>
           <div class="fragment">
             <h3>Run</h3>
-            <pre><code>verdaccio</code></pre>
-            💻
+            <pre><code>verdaccio</code></pre> 💻
           </div>
         </section>
         <section>
@@ -194,12 +221,21 @@
           <h3>Benutzung (Pakete verwenden)</h3>
           <div class="fragment">
             Browser:
-           <a href="http://eucouncil-vt1.dev.init:4873">http://npm.dev.init</a>
+            <a href="http://eucouncil-vt1.dev.init:4873">http://npm.dev.init</a>
           </div>
           <pre class="fragment"><code>
               npm set registry http://npm.dev.init
               npm install some-dependency
           </code></pre>
+        </section>
+        <section>
+          <h3>Benefits</h3>
+          <ul>
+            <li class="fragment">Use private packages</li>
+            <li class="fragment">Cache npmjs.org registry</li>
+            <li class="fragment">Link multiple registries (uplinks)</li>
+            <li class="fragment">Override public packages</li>
+          </ul>
         </section>
       </section>
       <section>
@@ -213,7 +249,7 @@
       # after npm init and making changes:
       npm version major|minor|patch -m "message"
           </code>
-        </pre>
+        </pre> 💻
         <a class="fragment" href="semver.org">semver.org</a>
       </section>
       <section>
