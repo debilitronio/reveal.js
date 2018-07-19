@@ -2,76 +2,76 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <title>reveal.js</title>
+	<title>Private Package Management with Verdaccio</title>
 
-  <link rel="stylesheet" href="css/reveal.css">
-  <link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-  <!-- Theme used for syntax highlighting of code -->
-  <link rel="stylesheet" href="lib/css/zenburn.css">
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
 
-  <!-- Printing and PDF exports -->
-  <script>
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-    document.getElementsByTagName('head')[0].appendChild(link);
-  </script>
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
 </head>
 
 <body>
-  <div class="reveal">
-    <div class="slides">
+	<div class="reveal">
+		<div class="slides">
 
 
-      <section data-transition="zoom">
-        <h1>Package Management in
-          <span class="title-green">dunkelgrün</span>
-        </h1>
-      </section>
-      <section>
-        <section>
-          <h2 class="font-old">„Long“ time ago...</h2>
-          <div class="fragment">
-            <img src="img/download-autocomplete.png">
-            <img src="img/download-jquery.png">
-            <img src="img/download-slick.png">
-            <img src="img/Downloads_React.png">
-          </div>
-        </section>
-        <section>
-          <h3>Ergebnis</h3>
-          <div class="fragment">
-            <img src="img/vendors.png">
-            <strong>💭</strong>
-          </div>
-        </section>
-        <section>
-          <h3>Probleme</h3>
-          <ul>
-            <li class="fragment strike">Abhängigkeiten / Versionsmanagement</li>
-            <li class="fragment strike">Updates</li>
-            <li class="fragment strike">Libraries aufbohren</li>
-            <li class="fragment strike">Clean Git-Repo</li>
-          </ul>
-        </section>
-      </section>
-      <section>
-        <section>
-          <h2>
-            ...and now:
-            <svg width="150" height="auto" viewBox="0 0 18 7">
-              <path fill="#CB3837" d="M0 0v6h5v1h4V6h9V0"></path>
-              <path fill="#FFF" d="M1 1v4h2V2h1v3h1V1h1v5h2V2h1v2H8v1h2V1h1v4h2V2h1v3h1V2h1v3h1V1"></path>
-            </svg>
-          </h2>
-          <a href="http://npmjs.org" target="_blank">npmjs.org</a>
-          <pre class="fragment">
-            <code>
+			<section data-transition="zoom">
+				<h1>Package Management in
+					<span class="title-green">dunkelgrün</span>
+				</h1>
+			</section>
+			<section>
+				<section>
+					<h2 class="font-old">„Long“ time ago...</h2>
+					<div class="fragment">
+						<img src="img/download-autocomplete.png">
+						<img src="img/download-jquery.png">
+						<img src="img/download-slick.png">
+						<img src="img/Downloads_React.png">
+					</div>
+				</section>
+				<section>
+					<h3>Ergebnis</h3>
+					<div class="fragment">
+						<img src="img/vendors.png">
+						<strong>💭</strong>
+					</div>
+				</section>
+				<section>
+					<h3>Probleme</h3>
+					<ul>
+						<li class="fragment strike">Abhängigkeiten / Versionsmanagement</li>
+						<li class="fragment strike">Updates</li>
+						<li class="fragment strike">Libraries aufbohren</li>
+						<li class="fragment strike">Clean Git-Repo</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>
+						...and now:
+						<svg width="150" height="auto" viewBox="0 0 18 7">
+							<path fill="#CB3837" d="M0 0v6h5v1h4V6h9V0"></path>
+							<path fill="#FFF" d="M1 1v4h2V2h1v3h1V1h1v5h2V2h1v2H8v1h2V1h1v4h2V2h1v3h1V2h1v3h1V1"></path>
+						</svg>
+					</h2>
+					<a href="http://npmjs.org" target="_blank">npmjs.org</a>
+					<pre class="fragment">
+            <code data-noescape data-trim>
               npm install jquery
               npm install react react-dom
               npm install --save-dev autoprefixer
@@ -81,228 +81,253 @@
               npm install --save-dev stylelint
             </code>
           </pre>
-        </section>
-        <section>
-          <h2>packagae.json</h2>
-          <pre>
-	    			<code>
-{
-  // ...
-  "devDependencies": {
-    "autoprefixer": "^7.2.5",
-    "grunt": "^1.0.1",
-    "node-sass": "^4.7.2",
-    "prettier": "1.8.2",
-    "stylelint": "^8.4.0"
-  },
-  "dependencies": {
-    "jquery": "^3.2.0"
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
-  }
-}
+				</section>
+				<section>
+					<h2>packagae.json</h2>
+					<pre>
+	    			<code data-noescape data-trim>
+							{
+								// ...
+								"devDependencies": {
+									"autoprefixer": "^7.2.5",
+									"grunt": "^1.0.1",
+									"node-sass": "^4.7.2",
+									"prettier": "1.8.2",
+									"stylelint": "^8.4.0"
+								},
+								"dependencies": {
+									"jquery": "^3.2.0"
+									"react": "^16.2.0",
+									"react-dom": "^16.2.0"
+								}
+							}
             </code>
           </pre>
-        </section>
-        <section>
-          <strong>
-            <svg width="150" height="auto" viewBox="0 0 18 7">
-              <path fill="#CB3837" d="M0 0v6h5v1h4V6h9V0"></path>
-              <path fill="#FFF" d="M1 1v4h2V2h1v3h1V1h1v5h2V2h1v2H8v1h2V1h1v4h2V2h1v3h1V2h1v3h1V1"></path>
-            </svg>
-            js.org
-          </strong>
-          <br> ⬇
-          <br>
-          <img src="img/node_modules.png">
-        </section>
-        <section>
-          <h3>Benefits</h3>
-          <ul>
-            <li class="fragment check">Abhängigkeiten / Versionsmanagement</li>
-            <li class="fragment check">Updates</li>
-            <li class="fragment ask">Libraries aufbohren</li>
-            <li class="fragment check">Clean Git-Repo</li>
-          </ul>
-        </section>
-      </section>
-      <section>
-        <section>
-          <h2>Herausforderungen</h2>
-        </section>
-        <section>
-          <h3>Herausforderung #1:</h3>
-          <blockquote class="fragment">🛠️ Library aufbohren</blockquote>
-        </section>
-        <section>
-          <h4>🛠️ Library aufbohren - Beispiel</h4>
-          <pre>
-            <code>
-"dependencies": {
-  "@init/brick-bpa-forms": "^1.0.0",
-  "@init/brick-bpa-matomo": "^1.0.0",
-  "a11y-dialog": "^4.0.1",
-  "react-dom": "^16.2.0",
-  "react-highlight-words": "^0.11.0",
-  "react-md-spinner": "^0.2.5",
-  "react-paginate": "^5.1.0",
-  "react-select": "github:jnachtigall/react-select#b5401e7e90ed5ad0552dd947cde38730df3f8319",
-}
-            </code>
-          </pre>
-          <a target="_blank" href="https://github.com/jnachtigall/react-select">https://github.com/jnachtigall/react-select</a>
-        </section>
-        <section>
-          <h2>Problem</h2>
-          <div class="fragment">
-            [github.com/repoA] [gitLab.com/repoB] [gitlab.init.de/repoC]
-          </div>
-          <div class="fragment">
-            <br> ⬇
-            <br> [code]
-          </div>
-        </section>
-        <section>
-          <h3>Herausforderung #2:</h3>
-          <blockquote class="fragment">👷 Eigene wiederverwendbare Komponenten</blockquote>
-        </section>
-        <section>
-          <h4>👷 Eigene Komponente - Beispiel</h4>
-          <a class="external" target="_blank" href="https://www.npmjs.com/package/action-outside">
-            <img src="img/action-outside.gif" alt="action-outside">
-          </a>
-        </section>
-        <section>
-          <h2>Problem</h2>
-          <br><br>
-          <div class="fragment">
-            ]init[-Code public
-          </div>
-        </section>
-        <section>
-          <h3>Herausforderung #3:</h3>
-          <blockquote class="fragment">🚧 Serverausfälle</blockquote>
-          <img class="fragment" src="img/npm-status2.png" alt="">
-        </section>
-      </section>
+				</section>
+				<section>
+					<strong>
+						<svg width="150" height="auto" viewBox="0 0 18 7">
+							<path fill="#CB3837" d="M0 0v6h5v1h4V6h9V0"></path>
+							<path fill="#FFF" d="M1 1v4h2V2h1v3h1V1h1v5h2V2h1v2H8v1h2V1h1v4h2V2h1v3h1V2h1v3h1V1"></path>
+						</svg>
+						js.org
+					</strong>
+					<br> ⬇
+					<br>
+					<img src="img/node_modules.png">
+				</section>
+				<section>
+					<h3>Benefits</h3>
+					<ul>
+						<li class="fragment check">Abhängigkeiten / Versionsmanagement</li>
+						<li class="fragment check">Updates</li>
+						<li class="fragment ask">Libraries aufbohren</li>
+						<li class="fragment check">Clean Git-Repo</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Herausforderungen</h2>
+				</section>
+				<section>
+					<h3>Herausforderung #1:</h3>
+					<blockquote class="fragment">🛠️ Library aufbohren</blockquote>
+				</section>
+				<section>
+					<h4>🛠️ Library aufbohren - Beispiel</h4>
+					<a target="_blank" href="https://github.com/jnachtigall/react-select">https://github.com/jnachtigall/react-select</a>
+					<pre class="fragment">
+							<code data-noescape data-trim>
+								"dependencies": {
+									"@init/brick-bpa-forms": "^1.0.0",
+									"@init/brick-bpa-matomo": "^1.0.0",
+									"a11y-dialog": "^4.0.1",
+									"react-dom": "^16.2.0",
+									"react-highlight-words": "^0.11.0",
+									"react-md-spinner": "^0.2.5",
+									"react-paginate": "^5.1.0",
+									<mark>"react-select": "github:jnachtigall/react-select#b5401e7e90ed5ad0552dd947cde38730df3f8319",</mark>
+								}
+							</code>
+						</pre>
+				</section>
+				<section>
+					<h2>Problem</h2>
+					<div class="fragment">
+						[github.com/repoA] [gitlab.com/repoB] [gitlab.init.de/repoC]
+					</div>
+					<div class="fragment">
+						<br> ⬇
+						<br> [code]
+					</div>
+				</section>
+				<section>
+					<h3>Herausforderung #2:</h3>
+					<blockquote class="fragment">👷 Eigene wiederverwendbare Komponenten</blockquote>
+				</section>
+				<section>
+					<h4>👷 Eigene Komponente - Beispiel</h4>
+					<a class="external" target="_blank" href="https://www.npmjs.com/package/action-outside">
+						<img src="img/action-outside.gif" alt="action-outside">
+					</a>
+					<pre class="fragment"><code data-noescape data-trim>
+						npm install action-outside
+					</code></pre>
+				</section>
+				<section>
+					<h3>package.json</h3>
+					<pre><code data-noescape data-trim>
+						"dependencies": {
+							"a11y-dialog": "^4.0.1",
+							<mark>"action-outside": "^1.0.2",</mark>
+							"babel-polyfill": "^6.26.0",
+							"jquery": "^3.3.1",
+						},
+					</code></pre>
+				</section>
+				<section>
+					<h2>Problem</h2>
+					<br>
+					<br>
+					<div class="fragment">
+						]init[-Code public
+					</div>
+				</section>
+				<section>
+					<h3>Herausforderung #3:</h3>
+					<blockquote class="fragment">🚧 Serverausfälle</blockquote>
+					<img class="fragment" src="img/npm-status2.png" alt="">
+				</section>
+			</section>
 
-      <section>
-        <section>
-          <h2>Die Lösung</h2>
-          <strong class="fragment strike">Sinopia</strong>
-          <strong class="fragment">Verdaccio 🎉</strong>
-          <img class="fragment" src="img/verdaccio.png" alt="">
-        </section>
-        <section>
-          <div>
-            <h3>Installation</h3>
-            <pre><code>npm install --global verdaccio</code></pre>
-          </div>
-          <div class="fragment">
-            <h3>Run</h3>
-            <pre><code>verdaccio</code></pre> 💻
-          </div>
-        </section>
-        <section>
-          <h3>Benutzung (Pakete veröffentlichen)</h3>
-          <span class="fragment">Write good, reusable code</span>
-          <pre class="fragment"><code>git init</code></pre>
-          <pre class="fragment"><code>npm init</code></pre>
-          <pre class="fragment"><code>npm set registry http://npm.dev.init</code></pre>
-          <pre class="fragment"><code>npm publish</code></pre>
-          <strong>💻</strong>
-        </section>
-        <section>
-          <h3>Benutzung (Pakete verwenden)</h3>
-          <div class="fragment">
-            Browser:
-            <a href="http://eucouncil-vt1.dev.init:4873">http://npm.dev.init</a>
-          </div>
-          <pre class="fragment"><code>
+			<section>
+				<section>
+					<h2>Die Lösung</h2>
+					<strong class="fragment strike">Sinopia</strong>
+					<strong class="fragment">Verdaccio 🎉</strong>
+					<img class="fragment" src="img/verdaccio.png" alt="">
+				</section>
+				<section>
+					<div>
+						<h3>Installation</h3>
+						<pre><code data-noescape data-trim>npm install --global verdaccio</code></pre>
+					</div>
+					<div class="fragment">
+						<h3>Run</h3>
+						<pre><code data-noescape data-trim>verdaccio</code></pre> 💻
+					</div>
+				</section>
+				<section>
+					<h3>Benutzung (Pakete veröffentlichen)</h3>
+					<span class="fragment">Write good, reusable code</span>
+					<pre class="fragment"><code data-noescape data-trim>git init</code></pre>
+					<pre class="fragment"><code data-noescape data-trim>npm init</code></pre>
+					<pre class="fragment"><code data-noescape data-trim>npm set registry http://npm.dev.init</code></pre>
+					<pre class="fragment"><code data-noescape data-trim>npm publish</code></pre>
+					<strong>💻</strong>
+				</section>
+				<section>
+					<h3>Benutzung (Pakete verwenden)</h3>
+					<div class="fragment">
+						Browser:
+						<a href="http://eucouncil-vt1.dev.init:4873">http://npm.dev.init</a>
+					</div>
+					<pre class="fragment"><code data-noescape data-trim>
               npm set registry http://npm.dev.init
               npm install some-dependency
           </code></pre>
-        </section>
-        <section>
-          <h3>Benefits</h3>
-          <ul>
-            <li class="fragment">Use private packages</li>
-            <li class="fragment">Cache npmjs.org registry</li>
-            <li class="fragment">Link multiple registries (uplinks)</li>
-            <li class="fragment">Override public packages</li>
-          </ul>
-        </section>
-      </section>
-      <section>
-        <h2>Semantic Versioning</h2>
-        <strong class="fragment">major</strong>
-        <strong class="fragment">.minor</strong>
-        <strong class="fragment">.patch</strong>
-        <img style="width:300px; height: auto" class="fragment" src="img/semver-bsp.png" alt="">
-        <pre class="fragment">
-          <code>
-      # after npm init and making changes:
-      npm version major|minor|patch -m "message"
-          </code>
-        </pre> 💻
-        <a class="fragment" href="semver.org">semver.org</a>
-      </section>
-      <section>
-        <section>
-          <h3>Integration / Images</h2>
-            <img src="img/devops_support_grey.png" alt="">
-        </section>
-        <section>
-          <h3>Package Manager Clients</h3>
-          <img src="img/package_managers_grey.png" alt="">
-        </section>
-        <section>
-          <h3>Contributors on GitHub</h3>
-          <img src="img/Contributors-to-verdaccio.png" alt="">
-        </section>
-        <section>
-          <h3>HealthCheck</h3>
-          <img src="img/Repo-Health-Check.png" alt="">
-        </section>
-        <section>
-          <h3>Users</h3>
-          <img src="img/users.png" alt="">
-          <img src="img/users-cra.png" alt="">
-        </section>
-      </section>
-      <section>
-        <h2>Weitere Fragen</h2>
-        <ul>
-          <li>Tauglichkeit für ]init[ / Meinungen?</li>
-          <li>Wie git repos zusammenhalten? -> GitLab-Gruppe?</li>
-          <li>Rechte-/Rollen: `login`, `add-user`</li>
-          <li>Workflow / Standard-Struktur für Pakete?</li>
-          <li>Evtl. sinnvol f. Auslieferung CMS? -> Loslösung von Dev-Repo</li>
-          <li>Scoped Pakete für @init?</li>
-          <li>Scoped Pakete für Projekte?</li>
-          <li>....</li>
-        </ul>
-      </section>
-    </div>
-  </div>
+				</section>
+				<section>
+					<h3>Benefits</h3>
+					<ul>
+						<li class="fragment">Use private packages</li>
+						<li class="fragment">Cache npmjs.org registry</li>
+						<li class="fragment">Link multiple registries (uplinks)</li>
+						<li class="fragment">Override public packages</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<h2>Semantic Versioning</h2>
+				<strong class="fragment">major</strong>
+				<strong class="fragment">.minor</strong>
+				<strong class="fragment">.patch</strong>
+				<pre class="fragment">
+					<code data-noescape data-trim>
+						"dependencies": {
+							"action-outside": "^<mark>1.0.2</mark>",
+							"jquery": "^3.3.1",
+						},
+					</code>
+				</pre>
+				<div class="fragment">after npm init and making changes:</div>
+				<pre class="fragment">
+					<code data-trim data-noescape>
+						npm version major|minor|patch -m "message"
+					</code>
+				</pre>
+				<div class="fragment">
+					💻
+					<a href="http://semver.org">semver.org</a>
+				</div>
+			</section>
+			<section>
+				<section>
+					<h3>Integration / Images</h2>
+						<img src="img/devops_support_grey.png" alt="">
+				</section>
+				<section>
+					<h3>Package Manager Clients</h3>
+					<img src="img/package_managers_grey.png" alt="">
+				</section>
+				<section>
+					<h3>Contributors on GitHub</h3>
+					<img src="img/Contributors-to-verdaccio.png" alt="">
+				</section>
+				<section>
+					<h3>HealthCheck</h3>
+					<img src="img/Repo-Health-Check.png" alt="">
+				</section>
+				<section>
+					<h3>Users</h3>
+					<img src="img/users.png" alt="">
+					<img src="img/users-cra.png" alt="">
+				</section>
+			</section>
+			<section>
+				<h2>Weitere Fragen</h2>
+				<ul>
+					<li>Tauglichkeit für ]init[ / Meinungen?</li>
+					<li>Wie git repos zusammenhalten? -> GitLab-Gruppe?</li>
+					<li>Rechte-/Rollen: `login`, `add-user`</li>
+					<li>Workflow / Standard-Struktur für Pakete?</li>
+					<li>Evtl. sinnvol f. Auslieferung CMS? -> Loslösung von Dev-Repo</li>
+					<li>Scoped Pakete für @init?</li>
+					<li>Scoped Pakete für Projekte?</li>
+					<li>....</li>
+				</ul>
+			</section>
+		</div>
+	</div>
 
-  <script src="lib/js/head.min.js"></script>
-  <script src="js/reveal.js"></script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
 
-  <script>
-    // More info about config & dependencies:
-    // - https://github.com/hakimel/reveal.js#configuration
-    // - https://github.com/hakimel/reveal.js#dependencies
-    Reveal.initialize({
-      dependencies: [
-        { src: 'plugin/markdown/marked.js' },
-        { src: 'plugin/markdown/markdown.js' },
-        { src: 'plugin/notes/notes.js', async: true },
-        { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
-      ],
-      transition: 'slide', // none/fade/slide/convex/concave/zoom
-    });
-  </script>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			],
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+		});
+	</script>
 </body>
 
 </html>
