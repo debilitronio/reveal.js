@@ -20,17 +20,9 @@
   text-transform: initial !important;
   font-weight: normal !important; }
 
-/* .title-green::before {
-  content: '';
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: absolute;
-  background-color: #F7F8F6AA;
-  padding: 0.2em;
-  border-radius: 100px;
-  box-shadow: 0px 0px 300px #F7F8F6;
-} */
+.reveal blockquote {
+  font-style: normal !important; }
+
 .reveal a {
   line-height: 1.3em; }
 

@@ -128,6 +128,38 @@ body {
 	}
 }
 
+.reveal .slides section .fragment.check {
+	opacity: 1;
+  visibility: inherit;
+  list-style-type: none;
+  text-indent: 0.8em;
+
+	&.visible {
+    text-indent: initial;
+
+    &::before {
+      content: '✓ ';
+      color: greenyellow;
+    }
+	}
+}
+
+.reveal .slides section .fragment.ask {
+	opacity: 1;
+  visibility: inherit;
+  list-style-type: none;
+  text-indent: 0.8em;
+
+	&.visible {
+    text-indent: initial;
+
+    &::before {
+      content: '🤔 ';
+      // color: lightblue;
+    }
+	}
+}
+
 .reveal .slides section .fragment.fade-up {
 	transform: translate(0, 20%);
 
