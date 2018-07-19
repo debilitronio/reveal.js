@@ -1,4 +1,6 @@
 
+* action-outside package.json
+
 
 * Live-Beispiel einbauen
 
